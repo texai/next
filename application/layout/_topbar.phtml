@@ -1,0 +1,95 @@
+
+        <div class="topbar">
+            <div class="topbar-inner">
+                <div class="container-fluid">
+                    <?$url=$this->url(array('controller'=>'index'),null,true)?>
+                    <a class="brand" href="<?=$url?>">Next</a>
+                    <ul class="nav">
+
+                        <?$controller = 'index'?>
+                        <?$url=$this->url(array('controller'=>$controller),null,true)?>
+                        <?$act=$this->controller==$controller?' active':''?>
+                        <li class="<?=$act?>">
+                            <a href="<?=$url?>">Home</a>
+                        </li>
+
+                        <?$controller = 'archivo'?>
+                        <?$act=$this->controller==$controller?' active':''?>
+                        <li class="dropdown<?=$act?>">
+                            <a class="dropdown-toggle" href="#">Archivos</a>
+                            <ul class="dropdown-menu">
+                                <?$action='index'?>
+                                <?$url=$this->url(array('controller'=>$controller,'action'=>$action),null,true)?>
+                                <?$act=$this->controller==$controller&&$this->action==$action?' active':''?>
+                                <li class="<?=$act?>"><a href="<?=$url?>">Listar</a></li>
+                                <?$action='nuevo'?>
+                                <?$url=$this->url(array('controller'=>$controller,'action'=>$action),null,true)?>
+                                <?$act=$this->controller==$controller&&$this->action==$action?' active':''?>
+                                <li class="<?=$act?>"><a href="<?=$url?>">Nuevo</a></li>
+                            </ul>
+                         </li>
+
+                        <?$controller = 'parser'?>
+                        <?$act=$this->controller==$controller?' active':''?>
+                        <li class="dropdown<?=$act?>">
+                            <a class="dropdown-toggle" href="#">Parser</a>
+                            <ul class="dropdown-menu">
+                                <?$action='index'?>
+                                <?$url=$this->url(array('controller'=>$controller,'action'=>$action),null,true)?>
+                                <?$act=$this->controller==$controller&&$this->action==$action?' active':''?>
+                                <li class="<?=$act?>"><a href="<?=$url?>">Listar</a></li>
+                                <?$action='nuevo'?>
+                                <?$url=$this->url(array('controller'=>$controller,'action'=>$action),null,true)?>
+                                <?$act=$this->controller==$controller&&$this->action==$action?' active':''?>
+                                <li class="<?=$act?>"><a href="<?=$url?>">Nuevo</a></li>
+                            </ul>
+                         </li>
+
+                        <?$controller = 'reporte'?>
+                        <?$act=$this->controller==$controller?' active':''?>
+                        <li class="dropdown<?=$act?>">
+                            <a class="dropdown-toggle" href="#">Reportes</a>
+                            <ul class="dropdown-menu">
+                                <?$action='index'?>
+                                <?$url=$this->url(array('controller'=>$controller,'action'=>$action),null,true)?>
+                                <?$act=$this->controller==$controller&&$this->action==$action?' active':''?>
+                                <li class="<?=$act?>"><a href="<?=$url?>">Listar</a></li>
+                                <?$action='nuevo'?>
+                                <?$url=$this->url(array('controller'=>$controller,'action'=>$action),null,true)?>
+                                <?$act=$this->controller==$controller&&$this->action==$action?' active':''?>
+                                <li class="<?=$act?>"><a href="<?=$url?>">Nuevo</a></li>
+                                <li class="divider"></li>
+                                <li><a href="<?=$url?>">Reporte 1</a></li>
+                                <li><a href="<?=$url?>">Reporte 2</a></li>
+                                <li><a href="<?=$url?>">Reporte 3</a></li>
+                            </ul>
+                         </li>
+
+                        <?$controller = 'tarea'?>
+                        <?$act=$this->controller==$controller?' active':''?>
+                        <li class="dropdown<?=$act?>">
+                            <a class="dropdown-toggle" href="#">Tareas</a>
+                            <ul class="dropdown-menu">
+                                <?$action='index'?>
+                                <?$url=$this->url(array('controller'=>$controller,'action'=>$action),null,true)?>
+                                <?$act=$this->controller==$controller&&$this->action==$action?' active':''?>
+                                <li class="<?=$act?>"><a href="<?=$url?>">Listar</a></li>
+                                <?$action='nuevo'?>
+                                <?$url=$this->url(array('controller'=>$controller,'action'=>$action),null,true)?>
+                                <?$act=$this->controller==$controller&&$this->action==$action?' active':''?>
+                                <li class="<?=$act?>"><a href="<?=$url?>">Nuevo</a></li>
+                                <li class="divider"></li>
+                                <li><a href="<?=$url?>">Tarea 1</a></li>
+                                <li><a href="<?=$url?>">Tarea 2</a></li>
+                                <li><a href="<?=$url?>">Tarea 3</a></li>
+                            </ul>
+                         </li>
+
+                    </ul>
+                    <p class="pull-right">
+                        Bienvenido <a href="#">texai</a> |
+                        <a href="#">Salir</a>
+                    </p>
+                </div>
+            </div>
+        </div>

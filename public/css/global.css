@@ -1,0 +1,34 @@
+/* 
+    Document   : global
+    Created on : 25/11/2011, 12:35:55 AM
+    Author     : texai
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+.container-fluid > .content{
+    margin-left: 0px;
+}
+.container-fluid > .content.use-sidebar{
+    margin-left: 240px;
+}
+
+table.listar{
+    margin-top: 10px;
+}
+
+.label.graybg{
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+.inline {display: inline;}

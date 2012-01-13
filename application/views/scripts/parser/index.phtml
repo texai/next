@@ -1,0 +1,61 @@
+<?$url=$this->url(array('controller'=>'parser','action'=>'nuevo'),null,true)?>
+<a class="btn primary pull-right" href="<?=$url?>">Nuevo Parser</a>
+<h2>Parsers</h2>
+
+<table class="bordered-table zebra-striped listar">
+    <? if (count($this->filas)): ?>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Reader</th>
+                <th>Writer</th>
+                <th>Ejecuciones</th>
+                <th>Creado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        <? foreach ($this->filas as $key => $fila): ?>
+            <tr>
+                <? $id = $fila->id ?>
+                <td><?=$fila->nombre?></td>
+                <?$class=$fila->reader;$ok = class_exists($class)?>
+                <td><span title="<?=$class?>"><?=$ok?$class::$_displayName:$class?> <span class="label <?=$ok?'success':'important'?>"><?=$ok?'Ok':'error'?></span></span></td>
+                <?$class=$fila->writer;$ok = class_exists($class)?>
+                <td><span title="<?=$class?>"><?=$ok?$class::$_displayName:$class?> <span class="label <?=$ok?'success':'important'?>"><?=$ok?'Ok':'error'?></span></span></td>
+                <td><?=$fila->n?></td>
+                <td><span title="<?=$fila->creado?>">hace <?=$this->Hace($fila->creado)?></span></td>
+                <td>
+                    <?$base=array('controller'=>'parser','id'=>$id)?>
+
+                    <?$url=$this->url($base+array('action'=>'parse'),null,true)?>
+                    <? if($ok): ?>
+                        <a href="<?=$url?>"><span class="label notice">parse</span></a>
+                    <? else: ?>
+                        <span class="label notice graybg">parse</span>
+                    <? endif; ?>
+
+                    <?$url=$this->url($base+array('action'=>'borrar'),null,true)?>
+                    <a href="<?=$url?>"><span class="label important">borrar</span></a>
+                    
+                    <?$url=$this->url($base+array('action'=>'historial'),null,true)?>
+                    <? if($fila->n>0): ?>
+                        <a href="<?=$url?>"><span class="label warning">historial</span></a>
+                    <? else: ?>
+                        <span class="label notice graybg">historial</span>
+                    <? endif; ?>
+                    
+                </td>
+            </tr>
+        <? endforeach; ?>
+        </tbody>
+    <? else: ?>
+                <thead>
+                    <tr>
+                        <th>No hay Parsers =(</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+    <? endif; ?>
+</table>
+

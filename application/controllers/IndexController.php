@@ -1,14 +1,19 @@
 <?php
 
-class IndexController extends Zend_Controller_Action
+class IndexController extends App_Controller_Action
 {
 
-    public function init()
-    {
-        /* Initialize action controller here */
+    public function init() {
+        parent::init();
+        $this->view->sideBar = true;
     }
 
+
     public function indexAction()
+    {
+    }
+
+    public function xAction()
     {
         // action body
     }

@@ -1,0 +1,33 @@
+<?$url=$this->url(array('controller'=>'parser','action'=>'parse'),null,true)?>
+<a class="btn primary pull-right" href="<?=$url?>">Nuevo Parseado</a>
+<h2>Hitorial del Parser: <?=$this->parser->nombre?></h2>
+
+<table class="bordered-table zebra-striped listar">
+    <? if (count($this->filas)): ?>
+        <thead>
+            <tr>
+                <th>Archivo</th>
+                <th>Status</th>
+                <th>Creado</th>
+            </tr>
+        </thead>
+        <tbody>
+        <? foreach ($this->filas as $key => $fila): ?>
+            <tr>
+                <td><?=$fila->original?> (<?=$fila->a_nombre?>) <span class="help-block inline"><?=$fila->a_creado?></span></td>
+                <?$ok=$fila->status==Application_Model_Parsed::STATUS_SUCCESS?>
+                <td><span class="label <?=$ok?'success':'important'?>"><?=Application_Model_Parsed::$statuses[$fila->status]?></span></td>
+                <td><span title="<?=$fila->creado?>">hace <?=$this->Hace($fila->creado)?></span></td>
+            </tr>
+        <? endforeach; ?>
+        </tbody>
+    <? else: ?>
+                <thead>
+                    <tr>
+                        <th>Este parser aún no ha sido usado =(</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+    <? endif; ?>
+</table>
+

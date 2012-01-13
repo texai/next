@@ -1,0 +1,48 @@
+<?$url=$this->url(array('controller'=>'archivo','action'=>'nuevo'),null,true)?>
+<a class="btn primary pull-right" href="<?=$url?>">Nuevo Archivo</a>
+<h2>Archivos</h2>
+
+<table class="bordered-table zebra-striped listar">
+    <? if (count($this->filas)): ?>
+        <thead>
+            <tr>
+                <th>Original</th>
+                <th>Nombre</th>
+                <th>Creado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        <? foreach ($this->filas as $key => $fila): ?>
+            <tr>
+                <? $id = $fila->id ?>
+                <? $ok = in_array($fila->archivo,$this->ls) ?>
+                <td><span title="<?=$fila->archivo?>"><?=$fila->original?> <span class="label <?=$ok?'success':'important'?>"><?=$ok?'Ok':'error'?></span></span></td>
+                <td><?=$fila->nombre?></td>
+                <td><span title="<?=$fila->creado?>">hace <?=$this->Hace($fila->creado)?></span></td>
+                <td>
+                    <?$base=array('controller'=>'archivo','id'=>$id)?>
+
+                    <?$url=$this->url($base+array('action'=>'download'),null,true)?>
+                    <? if($ok): ?>
+                        <a href="<?=$url?>"><span class="label notice">download</span></a>
+                    <? else: ?>
+                        <span class="label notice graybg">download</span>
+                    <? endif; ?>
+
+                    <?$url=$this->url($base+array('action'=>'borrar'),null,true)?>
+                    <a href="<?=$url?>"><span class="label important">borrar</span></a>
+                </td>
+            </tr>
+        <? endforeach; ?>
+        </tbody>
+    <? else: ?>
+                <thead>
+                    <tr>
+                        <th>No hay Archivos :(</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+    <? endif; ?>
+</table>
+
